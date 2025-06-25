@@ -1,4 +1,4 @@
-output "subnetwork_lists" {
+output "subnetwork_listsssssssss" {
   value = [
     for i in range(length(local.subnet_list)) : "${i}: ${local.subnet_list[i]}"
   ]
