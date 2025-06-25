@@ -21,10 +21,10 @@ resource "google_compute_subnetwork" "trs-private-subnetwork" {
 }
 
 resource "google_compute_route" "default_internet_route" {
-  name             = "blah-my-default-internet-route"               # Name of the route
-  dest_range       = "0.0.0.0/0"                                    # Destination CIDR range (0.0.0.0/0 means all traffic)
-  network          = google_compute_network.custom_vpc_network.name # Name of the VPC network
-  next_hop_gateway = "projects/${google_compute_network.custom_vpc_network.project}/global/gateways/default-internet-gateway"
+  name             = "blah-my-default-internet-route"        # Name of the route
+  dest_range       = "0.0.0.0/0"                             # Destination CIDR range (0.0.0.0/0 means all traffic)
+  network          = google_compute_network.trs-network.name # Name of the VPC network
+  next_hop_gateway = "projects/${google_compute_network.trs-network.project}/global/gateways/default-internet-gateway"
   priority         = 1000 # Priority of the route (lower is higher priority)
   description      = "Route to the internet via default gateway"
 }
