@@ -25,6 +25,9 @@ output "Available_zone_list" {
   description = "List of availability zones"
 }
 
+output "public_internal_IP_address" {
+  value = [for i in range(length(google_compute_address.trs-static_public_internal_ip)) : "${i}: ${google_compute_address.trs-static_private_internal_ip[i].address}"]
+}
 /*
 output "image_range_size_images" {
   value = length(data.google_compute_images.gcp_public_images.images)
