@@ -33,4 +33,6 @@ locals {
   availability_zone_list  = slice(data.google_compute_zones.available_azs.names, 0, local.availability_zone_count)
 }
 
-
+locals {
+  sumtin = ["aaaa", "bbbb", "cccc"]
+}
