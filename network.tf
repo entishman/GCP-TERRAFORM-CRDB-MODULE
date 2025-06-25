@@ -27,8 +27,6 @@ resource "google_compute_address" "trs-static_internal_ip" {
   region       = "us-west2"                                                # Must be in the same region as the subnetwork
   description  = "Static internal IP for my compute instance"
 }
-
-
 resource "google_compute_route" "default_internet_route" {
   name             = "blah-my-default-internet-route"        # Name of the route
   dest_range       = "0.0.0.0/0"                             # Destination CIDR range (0.0.0.0/0 means all traffic)
