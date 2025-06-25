@@ -19,6 +19,12 @@ resource "google_compute_subnetwork" "trs-private-subnetwork" {
   network       = google_compute_network.trs-network.id
   ip_cidr_range = local.private_subnet_list[count.index]
 }
+
+resource "google_compute_route" "trs-public-route-table" {
+
+}
+
+
 /*
 resource "google_compute_address" "trs-address" {
   name         = "trs-address"
