@@ -5,6 +5,19 @@ output "subnetwork_lists" {
   description = "List of subnets created in the VPC"
 }
 
+output "privateSubnetList" {
+  value = [
+    for i in range(length(local.private_subnet_list)) : "${i}: ${local.private_subnet_list[i]}"
+  ]
+  description = "List of private subnets created in the VPC"
+}
+output "publicSubnetList" {
+  value = [
+    for i in range(length(local.public_subnet_list)) : "${i}: ${local.public_subnet_list[i]}"
+  ]
+  description = "List of public subnets created in the VPC"
+}
+
 output "Available_zone_list" {
   value = [
     for i in range(length(local.availability_zone_list)) : "${i}: ${local.availability_zone_list[i]}"
