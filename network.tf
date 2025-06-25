@@ -26,9 +26,9 @@ resource "random_integer" "random_suffix" {
 }
 resource "google_compute_address" "trs-static_public_internal_ip" {
   count        = 3
-  name         = "my-compute-public-static-internal-ip-${random_integer.random_suffice.result}" # Name for the static internal IP address resource
-  subnetwork   = google_compute_subnetwork.trs-public-subnetwork[count.index].name              # Associate with the subnetwork
-  address_type = "INTERNAL"                                                                     # Specify that this is an internal IP
+  name         = "my-compute-public-static-internal-ip-${random_integer.random_suffix.result}" # Name for the static internal IP address resource
+  subnetwork   = google_compute_subnetwork.trs-public-subnetwork[count.index].name             # Associate with the subnetwork
+  address_type = "INTERNAL"                                                                    # Specify that this is an internal IP
   #address      = private_subnet_list[count.index]                                              # The specific internal IP address to reserve
   region      = "us-west2" # Must be in the same region as the subnetwork
   description = "Static internal IP for my public compute instances"
@@ -36,9 +36,9 @@ resource "google_compute_address" "trs-static_public_internal_ip" {
 
 resource "google_compute_address" "trs-static_private_internal_ip" {
   count        = 3
-  name         = "my-compute-prinate-static-internal-ip-${random_integer.random_suffice.result}" # Name for the static internal IP address resource
-  subnetwork   = google_compute_subnetwork.trs-public-subnetwork[count.index].name               # Associate with the subnetwork
-  address_type = "INTERNAL"                                                                      # Specify that this is an internal IP
+  name         = "my-compute-prinate-static-internal-ip-${random_integer.random_suffix.result}" # Name for the static internal IP address resource
+  subnetwork   = google_compute_subnetwork.trs-public-subnetwork[count.index].name              # Associate with the subnetwork
+  address_type = "INTERNAL"                                                                     # Specify that this is an internal IP
   #address      = public_subnet_list[count.index]                                                # The specific internal IP address to reserve
   region      = "us-west2" # Must be in the same region as the subnetwork
   description = "Static internal IP for my compute instance"
