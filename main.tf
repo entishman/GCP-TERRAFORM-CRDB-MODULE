@@ -32,7 +32,7 @@ locals {
   private_subnet_list     = chunklist(local.subnet_list, 3)[0]
   public_subnet_list      = chunklist(local.subnet_list, 3)[1]
   availability_zone_count = 3
-  availability_zone_list  = slice(data.google_compute_zones.available_azs.names, 0, local.availability_zone_count)
+  availability_zone_list  = slice(data.google_compute_zones.available_zones.names, 0, local.availability_zone_count)
 }
 
 locals {
