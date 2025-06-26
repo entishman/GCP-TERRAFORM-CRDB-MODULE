@@ -39,7 +39,7 @@ resource "google_compute_address" "trs-static-private-internal-ip" {
   region      = "us-west2" # Must be in the same region as the subnetwork
   description = "Static internal IP for my compute instance"
 }
-
+/*
 resource "google_compute_route" "default-internet-route" {
   name             = "blah-my-default-internet-route"        # Name of the route
   dest_range       = "0.0.0.0/0"                             # Destination CIDR range (0.0.0.0/0 means all traffic)
@@ -48,4 +48,4 @@ resource "google_compute_route" "default-internet-route" {
   priority         = 1000 # Priority of the route (lower is higher priority)
   description      = "Route to the internet via default gateway"
 }
-
+*/
