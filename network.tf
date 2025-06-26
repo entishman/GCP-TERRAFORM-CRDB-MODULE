@@ -32,7 +32,7 @@ resource "google_compute_address" "trs-static_public_internal_ip" {
 
 resource "google_compute_address" "trs-static_private_internal_ip" {
   count        = 3
-  name         = "my-compute-prinate-static-internal-ip-${count.index + 1}"        # Name for the static internal IP address resource
+  name         = "my-compute-private-static-internal-ip-${count.index + 1}"        # Name for the static internal IP address resource
   subnetwork   = google_compute_subnetwork.trs-public-subnetwork[count.index].name # Associate with the subnetwork
   address_type = "INTERNAL"                                                        # Specify that this is an internal IP
   #address      = public_subnet_list[count.index]                                                # The specific internal IP address to reserve
