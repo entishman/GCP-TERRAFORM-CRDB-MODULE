@@ -11,19 +11,21 @@ resource "google_compute_firewall" "allow_ssh" {
   source_ranges = ["0.0.0.0/0"] # Allow from any IP address
 }
 
-resource "google_compute_instance" "trs-vm-instance" {
+resource "google_compute_instance" "trs-public-instance" {
   count        = 3
   name         = "instance-name-${count.index}"
   machine_type = "e2-medium"
 
   boot_disk {
     initialize_params {
-      image = "debian-cloud/debian-10"
+      image = "debian-cloud/debian-11"
     }
   }
 
   network_interface {
-    network = google_compute_network.trs-network.name
+    network    = google_compute_network.trs-network.name
+    subnetwork = google_compute_subnetwork.trs-public-subnetwork[count.index].name
+    network_ip = google_compute_address.trs-static-public-internal-ip[count.index].address
     access_config {
       // Ephemeral public IP
     }
