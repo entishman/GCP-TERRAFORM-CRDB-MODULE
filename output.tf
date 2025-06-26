@@ -26,17 +26,17 @@ output "Available_zone_list" {
 }
 
 output "public_internal_IP_address" {
-  value = [for i in range(length(google_compute_address.trs-static_public_internal_ip)) : "${i}: ${google_compute_address.trs-static_public_internal_ip[i].address}"]
+  value = [for i in range(length(google_compute_address.trs-static-public-internal-ip)) : "${i}: ${google_compute_address.trs-static-public-internal-ip[i].address}"]
 }
 output "public_internal_name" {
-  value = [for i in range(length(google_compute_address.trs-static_public_internal_ip)) : "${i}: ${google_compute_address.trs-static_public_internal_ip[i].name}"]
+  value = [for i in range(length(google_compute_address.trs-static-public-internal-ip)) : "${i}: ${google_compute_address.trs-static-public-internal-ip[i].name}"]
 }
 
 output "private_internal_IP_address" {
-  value = [for i in range(length(google_compute_address.trs-static_private_internal_ip)) : "${i}: ${google_compute_address.trs-static_private_internal_ip[i].address}"]
+  value = [for i in range(length(google_compute_address.trs-static-private-internal_ip)) : "${i}: ${google_compute_address.trs-static-private-internal-ip[i].address}"]
 }
 output "private_internal_name" {
-  value = [for i in range(length(google_compute_address.trs-static_private_internal_ip)) : "${i}: ${google_compute_address.trs-static_private_internal_ip[i].name}"]
+  value = [for i in range(length(google_compute_address.trs-static-private-internal_ip)) : "${i}: ${google_compute_address.trs-static-private-internal-ip[i].name}"]
 }
 
 /*
