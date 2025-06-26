@@ -19,7 +19,7 @@ output "publicSubnetList" {
 }
 #-------------------------------------------------------------------------------------
 output "ListOfAllZones" {
-  value       = data.google_compute_zones.names
+  value       = data.google_compute_zones.available_zones.names
   description = "A list of all zones"
 }
 
