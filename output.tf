@@ -31,7 +31,6 @@ output "public_internal_IP_address" {
 output "public_internal_name" {
   value = [for i in range(length(google_compute_address.trs-static-public-internal-ip)) : "${i}: ${google_compute_address.trs-static-public-internal-ip[i].name}"]
 }
-output "hi_there" { value = "buddy" }
 output "private_internal_IP_address" {
   value = [for i in range(length(google_compute_address.trs-static-private-internal-ip)) : "${i}: ${google_compute_address.trs-static-private-internal-ip[i].address}"]
 }
@@ -45,17 +44,17 @@ output "image_range_size_images" {
 }
 
 output "ListOfAllZones" {
-  value       = data.google_compute_zones.available_azs
+  value       = data.google_compute_zones.zones
   description = "A list of all zones"
 }
 
 output "ListOfAllZonesbyForLoop" {
-  value = [for zone in data.google_compute_zones.available_azs.names : zone]
+  value = [for zone in data.google_compute_zones.available_zones.names : zone]
 }
 
 output "ListOfAllZonesbyIndex_i" {
   value = [
-    for i in range(length(data.google_compute_zones.available_azs.names)) : "${i}: ${data.google_compute_zones.available_azs.names[i]}"
+    for i in range(length(data.google_compute_zones.available_zones.names)) : "${i}: ${data.google_compute_zones.available_zones.names[i]}"
   ]
 }
 

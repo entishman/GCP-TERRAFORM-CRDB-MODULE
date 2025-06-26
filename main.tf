@@ -8,7 +8,9 @@ provider "cockroach" {
   # Configuration options
 }
 
-data "google_compute_zones" "available_azs" {
+data "google_compute_zones" "available_zones" {
+  region = var.gcp_region_01
+  status = "UP"
 }
 
 data "google_compute_images" "gcp_public_images" {
