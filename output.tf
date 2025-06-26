@@ -17,32 +17,7 @@ output "publicSubnetList" {
   ]
   description = "List of public subnets created in the VPC"
 }
-
-output "Available_zone_list" {
-  value = [
-    for i in range(length(local.availability_zone_list)) : "${i}: ${local.availability_zone_list[i]}"
-  ]
-  description = "List of availability zones"
-}
-
-output "public_internal_IP_address" {
-  value = [for i in range(length(google_compute_address.trs-static-public-internal-ip)) : "${i}: ${google_compute_address.trs-static-public-internal-ip[i].address}"]
-}
-output "public_internal_name" {
-  value = [for i in range(length(google_compute_address.trs-static-public-internal-ip)) : "${i}: ${google_compute_address.trs-static-public-internal-ip[i].name}"]
-}
-output "private_internal_IP_address" {
-  value = [for i in range(length(google_compute_address.trs-static-private-internal-ip)) : "${i}: ${google_compute_address.trs-static-private-internal-ip[i].address}"]
-}
-output "private_internal_name" {
-  value = [for i in range(length(google_compute_address.trs-static-private-internal-ip)) : "${i}: ${google_compute_address.trs-static-private-internal-ip[i].name}"]
-}
-
-/*
-output "image_range_size_images" {
-  value = length(data.google_compute_images.gcp_public_images.images)
-}
-
+#-------------------------------------------------------------------------------------
 output "ListOfAllZones" {
   value       = data.google_compute_zones.zones
   description = "A list of all zones"
@@ -57,6 +32,28 @@ output "ListOfAllZonesbyIndex_i" {
     for i in range(length(data.google_compute_zones.available_zones.names)) : "${i}: ${data.google_compute_zones.available_zones.names[i]}"
   ]
 }
+#-------------------------------------------------------------------------------------
+output "public_internal_IP_address" {
+  value = [for i in range(length(google_compute_address.trs-static-public-internal-ip)) : "${i}: ${google_compute_address.trs-static-public-internal-ip[i].address}"]
+}
+output "public_internal_name" {
+  value = [for i in range(length(google_compute_address.trs-static-public-internal-ip)) : "${i}: ${google_compute_address.trs-static-public-internal-ip[i].name}"]
+}
+output "private_internal_IP_address" {
+  value = [for i in range(length(google_compute_address.trs-static-private-internal-ip)) : "${i}: ${google_compute_address.trs-static-private-internal-ip[i].address}"]
+}
+output "private_internal_name" {
+  value = [for i in range(length(google_compute_address.trs-static-private-internal-ip)) : "${i}: ${google_compute_address.trs-static-private-internal-ip[i].name}"]
+}
+#-------------------------------------------------------------------------------------
+output "List_of_public_compute_instances" {
+  value = [for i in range(length(google_compute_instance.trs-public-instance)) : "${i}: ${google_compute_instance.trs-public-instance[i].name}"]
+}
+/*
+output "image_range_size_images" {
+  value = length(data.google_compute_images.gcp_public_images.images)
+}
+
 
 output "ListOfAllImages_by_index" {
   value = [
