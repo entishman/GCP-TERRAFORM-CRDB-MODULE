@@ -31,7 +31,7 @@ output "public_internal_IP_address" {
 output "public_internal_name" {
   value = [for i in range(length(google_compute_address.trs-static-public-internal-ip)) : "${i}: ${google_compute_address.trs-static-public-internal-ip[i].name}"]
 }
-
+output "hi there" { value = "buddy" }
 output "private_internal_IP_address" {
   value = [for i in range(length(google_compute_address.trs-static-private-internal-ip)) : "${i}: ${google_compute_address.trs-static-private-internal-ip[i].address}"]
 }
