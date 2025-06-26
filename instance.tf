@@ -15,7 +15,7 @@ resource "google_compute_instance" "trs-public-instance" {
   count        = 3
   name         = "trs-compute-instance-${count.index}"
   machine_type = "e2-medium"
-  zone         = data.google_compute_zones.available_zones[count.index].names
+  zone         = data.google_compute_zones.available_zones.names[count.index]
 
   boot_disk {
     initialize_params {
