@@ -19,7 +19,7 @@ variable "my_ip_address" {
 variable "owner" {
   description = "The owner of the project"
   type        = string
-  default     = "trs--"
+  default     = "trs-"
 }
 
 variable "project_name" {
@@ -123,4 +123,24 @@ variable "vpc_cidr" {
   default     = "10.0.0.0/24"
 }
 
+variable "haproxy_instance_type" {
+  description = "HAProxy Instance Type"
+  type        = string
+  default     = "t3a.micro"
+}
 
+variable "crdb_instance_key_name" {
+  description = "The key name to use for the crdb instance -- this key must already exist"
+  type        = string
+  nullable    = false
+}
+
+variable "create_ec2_instances" {
+  description = "create the ec2 instances (yes/no)?  If set to 'no', then only the VPC, subnets, routes tables, routes, peering, etc are created"
+  type        = string
+  default     = "yes"
+  validation {
+    condition     = contains(["yes", "no"], var.create_ec2_instances)
+    error_message = "Valid value for variable 'create_ec2_instances' is : 'yes' or 'no'"
+  }
+}
