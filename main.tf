@@ -1,4 +1,3 @@
-bella
 provider "google" {
   project = "trs-proj1"
   region  = var.gcp_region_01
