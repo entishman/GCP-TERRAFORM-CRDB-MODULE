@@ -36,7 +36,7 @@ resource "google_compute_address" "trs-static-private-internal-ip" {
   region       = "us-west2"                                                         # Must be in the same region as the subnetwork
   description  = "Static internal IP for my compute instance"
 }
-#-------------------------------------------------------------------------------------
+#------------------------------------------------------------------------------------- 
 /*
 resource "google_compute_route" "default-internet-route" {
   name             = "blah-my-default-internet-route"        # Name of the route
