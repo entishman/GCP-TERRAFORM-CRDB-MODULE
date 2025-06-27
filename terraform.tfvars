@@ -5,8 +5,8 @@ my_ip_address = "24.69.84.116"
 owner        = "trs--"
 project_name = "trs-project"
 # changed:
-#crdb_instance_key_name = "TRS-uswest2"
-#vpc_cidr               = "192.168.7.0/24"
+crdb_instance_key_name = "TRS-uswest2"
+vpc_cidr               = "10.0.0.0/24"
 
 # -----------------------------------------
 # CRDB Specifications
