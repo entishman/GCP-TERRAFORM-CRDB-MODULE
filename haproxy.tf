@@ -1,6 +1,8 @@
 # HAProxy Node
+
 resource "aws_instance" "haproxy" {
   # count         = 0
+  /*
   count                       = var.include_ha_proxy == "yes" && var.create_ec2_instances == "yes" ? 1 : 0
   user_data_replace_on_change = true
   tags                        = merge(local.tags, { Name = "${var.owner}-crdb-haproxy-${count.index}" })
@@ -17,6 +19,7 @@ resource "aws_instance" "haproxy" {
     volume_type           = "gp2"
     volume_size           = 8
   }
+*/
   user_data = <<EOF
 #!/bin/bash -xe
 echo 'export CLUSTER_PRIVATE_IP_LIST="${local.ip_list}" ' >> /home/ec2-user/.bashrc
